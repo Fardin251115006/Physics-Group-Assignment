@@ -1,0 +1,27 @@
+#include<stdio.h>
+#include<math.h>
+#define PI  3.1416
+
+int main()
+{
+    double lamda1 = 530e-9;
+    double lamda2 = 700e-9;
+    double theta1 = 65.0;
+    double theta1rad, d, sint2, theta2_rad, theta2_deg;
+    int m1 = 3;
+    int m2 = 2;
+
+    theta1rad = theta1*PI/180.0;
+    d = (m1 * lamda1) / sin(theta1rad);
+    sint2 = (m2 * lamda2) / d;
+
+    if(sint2>1){
+        printf("Invalid result: No real solution.\n");
+    } else {
+        theta2_rad=asin(sint2);
+        theta2_deg=theta2_rad*180.0/PI;
+        printf("The second angle theta 2: %.2lf degrees\n", theta2_deg);
+    }
+
+    return 0;
+}
